@@ -77,7 +77,7 @@ when the migrations are made for the very first time.
    ```bash
    pip install -r requirements.txt
    ```
-   Note: Ensure that PostgreSQL is running at port 5432 with the username and password set to postgres and the database name set to TestTubeYumYumsDB. Modify settings.py if needed. \n
+   **Note**: Ensure that PostgreSQL is running at port **5432** with the username and password set to **postgres** and the database name set to **TestTubeYumYumsDB**. Modify settings.py if needed for customisation. \
 ![alt text](https://github.com/jijivishu/TestTubeYumYums/blob/main/TestTubeYumYums/static/TestTubeYumYums/images/readme/pgadmin.png)
 5. Create migrations:
 
