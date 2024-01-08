@@ -96,6 +96,7 @@ when the migrations are made for the very first time.
 ## Registration
 
 The registration process consists of three steps, with the first step being mandatory. Users provide their name, email (unique identifier), date of birth, and password in the first step. Subsequent steps collect additional information such as country, weight, height, blood pressure, and diabetes data.
+![alt text](https://github.com/jijivishu/TestTubeYumYums/blob/main/TestTubeYumYums/static/TestTubeYumYums/images/readme/Register%20Menu.png?raw=true)
 
 ## Working
 
