@@ -67,7 +67,7 @@ when the migrations are made for the very first time.
    source env/bin/activate
    ```
 
-   * Windows(using bash):
+   * Windows (using bash):
    ```bash
    source env/Scripts/activate
    ```
