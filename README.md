@@ -29,3 +29,21 @@ The project also features a multi-page registration form with partial submission
    cd TestTubeYumYums
    python -m venv env
    ```
+
+3. Activate the virtual environment:
+
+   *Windows:
+   ```bash
+   env\Scripts\activate
+   ```
+
+   *Windows:
+   ```bash
+   env\Scripts\activate
+   ```
+
+   *Windows:
+   ```bash
+   env\Scripts\activate
+   ```
+
