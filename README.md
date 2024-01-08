@@ -32,17 +32,17 @@ The project also features a multi-page registration form with partial submission
 
 3. Activate the virtual environment:
 
-   Windows:
+   * Windows:
    ```bash
    env\Scripts\activate
    ```
 
-   macOS/Linux:
+   * macOS/Linux:
    ```bash
    source env/bin/activate
    ```
 
-   Windows(using bash):
+   * Windows(using bash):
    ```bash
    source env/Scripts/activate
    ```
@@ -69,3 +69,25 @@ The project also features a multi-page registration form with partial submission
    Access the application at http://127.0.0.1:8000/. Ensure an internet connection.
 
 ## Registration
+
+The registration process consists of three steps, with the first step being mandatory. Users provide their name, email (unique identifier), date of birth, and password in the first step. Subsequent steps collect additional information such as country, weight, height, blood pressure, and diabetes data.
+
+## Working
+
+Food recommendations are provided based on users' previous test reports. If a user has no test reports uploaded, they are prompted to do so. Users can upload test reports through the '/add' route, customizing the ranges associated with a test report at the time of upload.
+
+Upon submission, users are redirected to the home page, where they can view recommended food items based on their test results and analysis report.
+
+## Future Expectations
+
+# Minor:
+* Display nutritional values of individual food items on click.
+* Allow partial page submission in the registration form.
+
+# Major:
+* Migrate to React instead of using CDN.
+* Install Tailwind instead of using CDN.
+* Customize food recommendations based on BMI, location, diabetic info, and blood pressure info.
+* Consider previous test reports when analyzing the current test report.
+
+Thank you for using TestTubeYumYums!
