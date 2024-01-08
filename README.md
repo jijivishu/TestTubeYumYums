@@ -80,11 +80,11 @@ Upon submission, users are redirected to the home page, where they can view reco
 
 ## Future Expectations
 
-# Minor:
+### Minor:
 * Display nutritional values of individual food items on click.
 * Allow partial page submission in the registration form.
 
-# Major:
+### Major:
 * Migrate to React instead of using CDN.
 * Install Tailwind instead of using CDN.
 * Customize food recommendations based on BMI, location, diabetic info, and blood pressure info.
