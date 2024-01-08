@@ -16,15 +16,12 @@ from TestTubeYumYums.models import CBC, VitMin
 # Whenever a model is migrated, trigger this function through Django's in-built signal
 @receiver(post_migrate)
 def populate_ranges(sender, **kwargs):
-    print("Post migrate signal received.")
 
     # Check whether the migration that triggered the function was for this app(TestTubeYumYums)'s model
     if sender.name == 'TestTubeYumYums':
-        print("App name matches.")
         
         # Check if the CBC table is migrated for the first time
         if CBC.objects.count() == 0:
-            print("CBC table is empty. Populating initial data.")
             # Create lower range for CBC
             CBC.objects.create(
                 Hb=12.0,
@@ -75,7 +72,6 @@ def populate_ranges(sender, **kwargs):
 
         # Check if the VitMin table is migrated for the first time
         if VitMin.objects.count() == 0:
-            print("VitMin table is empty. Populating initial data.")
             # Create lower range for VitMin
             VitMin.objects.create(
                 A=300.0,

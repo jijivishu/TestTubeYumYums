@@ -56,7 +56,6 @@ class TesttubeyumyumsConfig(AppConfig):
                 # Convert all headings to valid snake_case
                 snake_headings = [modify_to_snake(headings) for headings in food_data.fieldnames]
 
-                print(snake_headings)
 
                 # Create dictionary with new keys(headings) and load csv
                 food_data = csv.DictReader(food_data_csv, fieldnames=snake_headings)

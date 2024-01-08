@@ -16,7 +16,6 @@ if (document.querySelector('#unlogged')) {
 
 // The sole purpose of this function is to switch between Register Form and the Login Form 
 function switchMenu(name) {
-    console.log("In switchMenu")
     if (name === "Register") {
         ReactDOM.render(<Login />, document.querySelector('#unlogged'))
     }
@@ -292,7 +291,6 @@ function Register() {
         }
         else if (pageNum === 2) {
             updateRegisterInputs({ ...registerInputs, ["systolic"]: "", ["diastolic"]: "", ["ast"]: "", ["bp"]: false, ["diabetes"]: false })
-            console.log("reached skipPage for page 2")
         }
     }
 
@@ -301,12 +299,10 @@ function Register() {
     // ...triggered on the last page of the registration form.
     function sendRegisterData(event, pageNum) {
         if (pageNum === registerInputFields.length - 1) {
-            console.log("Returning true from sendRegisterData")
 
             // Send data to server
             sendToServer("Register", registerInputs, setError);
         }
-        console.log(registerInputs)
         event.preventDefault()
         return false
     }
@@ -472,7 +468,6 @@ function FormInput(props) {
     // Every time a user leaves an input field, this function is called to check the validity of entered input.
     function checkValid(e, idInvalid) {
         onChange(e)
-        console.log("In checkValid")
         if (e.target.checkValidity()) setInvalid(0)
         else setInvalid(idInvalid)
     }
@@ -738,7 +733,6 @@ function sendToServer(formName, fields, setError) {
         }
         else {
             // Submit test entries.
-            console.log(fields.formData)
             fetch(`/add`, {
                 method: 'POST',
                 credentials: 'same-origin',
@@ -768,7 +762,6 @@ function sendToServer(formName, fields, setError) {
 
 // Whenever url points to the 'add' path, forms to enter test parameters need to be displayed.
 if (window.location.pathname === '/add') {
-    console.log("Entered ")
     ReactDOM.render(<TestForm />, document.querySelector('#logged'))
 }
 
@@ -1263,9 +1256,6 @@ function TestForm() {
         if (typeof (high) === 'undefined') setHigh(Object.assign(cbcUpper, vitminUpper))
     }
 
-    if (typeof (low) != 'undefined') console.log(`High is ${high.Hb}`)
-    if (typeof (low) != 'undefined') console.log(`Low is ${low.Hb}`)
-
     // Update new ranges entered by the user unless they are invalid.
     // Invalid states(not limited to) a high(or low) range of a parameter isn't...
     // ...below(or exceeding) the current low(or high) range for that parameter.
@@ -1342,7 +1332,6 @@ function TestForm() {
                 if (showRange) {
                   alert("No change in range was observed");  
                 }
-                console.log(fields)
 
                 // Custom function responsible for carrying data to the server has following three arguments chronologically:
                 // - "Test" denoting the API endpoint to be reached must be the one related to creating a new test report.
@@ -1356,7 +1345,6 @@ function TestForm() {
                 fields['rangeStatus'] = true
                 fields['low'] = low
                 fields['high'] = high
-                console.log(fields)
 
                 // Custom function responsible for carrying data to the server has following three arguments chronologically:
                 // - "Test" denoting the API endpoint to be reached must be the one related to creating a new test report.
@@ -1403,7 +1391,6 @@ const redirectToHome = () => {
 function getRange(setRange) {
     // Get csrf token directly from html [UNSAFE FOR REAL-WORLD USAGE]
     let csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
-    console.log("Entered getRange")
 
     // Range of each parameter is fetched fromt the server. useEffect is used to avoid more than one iteration.
     fetch(`/paraRange`, {
@@ -1425,7 +1412,6 @@ function getRange(setRange) {
                     if (childKey === "id") delete rangeDict[key][childKey]
                 }
             }
-            console.log(rangeDict.cbc_upper)
             setRange(rangeDict);
         })
 }
@@ -1441,7 +1427,6 @@ function getRange(setRange) {
     
 //     // Convert the string of item detail to a dictionary
 //     item = JSON.parse(item)
-//     console.log("Show food overlay triggered");
 //     document.querySelector('#overlay').setAttribute('class', 'block');
 //     ReactDOM.render(<FoodDetailOverlay item={item} />, document.querySelector('#overlay'))
 //     document.querySelector('#body').setAttribute('class', 'hidden');
