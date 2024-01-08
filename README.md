@@ -77,7 +77,7 @@ when the migrations are made for the very first time.
    ```bash
    pip install -r requirements.txt
    ```
-   Note: Ensure that PostgreSQL is running at port 5432 with the username and password set to postgres and the database name set to TestTubeYumYumsDB. Modify settings.py if needed.
+   Note: Ensure that PostgreSQL is running at port 5432 with the username and password set to postgres and the database name set to TestTubeYumYumsDB. Modify settings.py if needed. \n
 ![alt text](https://github.com/jijivishu/TestTubeYumYums/blob/main/TestTubeYumYums/static/TestTubeYumYums/images/readme/pgadmin.png)
 5. Create migrations:
 
@@ -99,13 +99,13 @@ The registration process consists of three steps, with the first step being mand
 ![alt text](https://github.com/jijivishu/TestTubeYumYums/blob/main/TestTubeYumYums/static/TestTubeYumYums/images/readme/Register%20Menu.png?raw=true)
 
 ## Working
-![alt text](https://github.com/jijivishu/TestTubeYumYums/blob/main/TestTubeYumYums/static/TestTubeYumYums/images/readme/LandingPage.png')
+![alt text](https://github.com/jijivishu/TestTubeYumYums/blob/main/TestTubeYumYums/static/TestTubeYumYums/images/readme/LandingPage.png?raw=true)
 
 Food recommendations are provided based on users' previous test reports. If a user has no test reports uploaded, they are prompted to do so. Users can upload test reports through the '/add' route, customizing the ranges associated with a test report at the time of upload.
-![alt text](https://github.com/jijivishu/TestTubeYumYums/blob/main/TestTubeYumYums/static/TestTubeYumYums/images/readme/Form.png)
+![alt text](https://github.com/jijivishu/TestTubeYumYums/blob/main/TestTubeYumYums/static/TestTubeYumYums/images/readme/Form.png?raw=true)
 
 Upon submission, users are redirected to the home page, where they can view recommended food items based on their test results and analysis report.
-![alt text](https://github.com/jijivishu/TestTubeYumYums/blob/main/TestTubeYumYums/static/TestTubeYumYums/images/readme/Demo.png)
+![alt text](https://github.com/jijivishu/TestTubeYumYums/blob/main/TestTubeYumYums/static/TestTubeYumYums/images/readme/Demo.png?raw=true)
 
 ## Future Expectations
 
