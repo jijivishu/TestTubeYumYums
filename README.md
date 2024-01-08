@@ -11,9 +11,34 @@ TestTubeYumYums is a Django-based application designed to provide custom food re
 
 ## Distinctiveness and Complexity
 
-TestTubeYumYums aims to target a unique blend of the health, pharmaceutical, and nutrition sectors by offering users food recommendations based on their blood test reports. The project is distinct in its approach, as it is rare to find applications recommending foods based on nutritional deficiencies using blood test results. The complexity of the project lies in its algorithm, which analyzes blood test reports, extracts deficient nutrients, compares them with the user's exact vitamin and mineral reports, and fetches food recommendations from a local CSV database.
+TestTubeYumYums aims to target a unique blend of the health, pharmaceutical, and nutrition sectors by offering users food recommendations based on their blood test reports. The project is distinct in its approach, as it is rare to find applications recommending foods based on nutritional deficiencies using blood test results. In fact, the initial idea was to connect the app with an API, which would offer food items when a certain range of nutrients is given. But due to absence of any such API available, an in-built self-made food database is located as csv file and is hooked with the application for providing recommendations. The complexity of the project lies in its algorithm, which analyzes blood test reports based on permutations of report paramteters and relatable diseases, extracts deficient nutrients based on the analysis, compares them with the user's exact vitamin and mineral reports, and fetches food recommendations from a local CSV database based on nutritional values of the foods.
 
 The project also features a multi-page registration form with partial submissions, validated entries, custom error messages, and responsiveness.
+
+## extra Files and their usage
+   ### food_data.csv
+   CSV database of food items that contains name of food, their description, image link and all nutritional infos includidng average serving(named recommended portion).
+   ### tailwind.config
+   Helps in using Tailwind CSS through CDN
+   ### LICENSE, .gitignore and README.md
+   Self-explanatory names
+   ### TestTubeYumYums > apps.py
+   Modified to load csv database whenever the app is initialized. Also, when the tables are created for the first time in database, CBC and VitMin tables are populated with high and low range values provided by Dr. LalPathLab.
+   ### TestTubeYumYums > analysis_messages.py
+   Contains pre-wrote analysis messages for possible combinations of CBC parameters.
+   ### TestTubeYumYums > api_codes.py
+   No longer in use.
+   ### TestTubeYumYums > cbc_analyser.py
+   Contains helper functions to return nutrient variation based on low and high CBC parameters
+   ### TestTubeYumYums > csv_codes.py
+   Contains a global dictionary which links each nutrient with it's csv database table heading and howmuch of that nutrient is considered high/low differentiator in a food item.
+   ### TestTubeYumYums > helpers.py
+   Contains functions that take in reports and ranges and return dictionary of report analysis and recommended food items.
+   ### TestTubeYumYums > nutrient_imbalance.py
+   Contains info about what type of parameter deviation can point towards which kind of nutrient imbalance.
+   ### TestTubeYumYums > signals.py
+   Utilizes Django's in-built post migration signals for populating first two rows of CBC model and VitMin model
+when the migrations are made for the very first time.
 
 ## Installation
 
