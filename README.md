@@ -32,18 +32,40 @@ The project also features a multi-page registration form with partial submission
 
 3. Activate the virtual environment:
 
-   *Windows:
+   Windows:
    ```bash
    env\Scripts\activate
    ```
 
-   *Windows:
+   macOS/Linux:
    ```bash
-   env\Scripts\activate
+   source env/bin/activate
    ```
 
-   *Windows:
+   Windows(using bash):
    ```bash
-   env\Scripts\activate
+   source env/Scripts/activate
    ```
 
+4. Install the required packages:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+   Note: Ensure that PostgreSQL is running at port 5432 with the username and password set to postgres and the database name set to TestTubeYumYumsDB. Modify settings.py if needed.
+
+5. Create migrations:
+
+   ```bash
+   python manage.py makemigrations
+   python manage.py migrate
+   ```
+   
+6. Run the application:
+
+   ```bash
+   python manage.py runserver
+   ```
+   Access the application at http://127.0.0.1:8000/. Ensure an internet connection.
+
+## Registration
