@@ -21,7 +21,7 @@ The project also features a multi-page registration form with partial submission
 
    ```bash
    git clone https://github.com/jijivishu/TestTubeYumYums.git
-  ```
+   ```
 
 2. Switch to the project directory and create a Python virtual environment:
 
