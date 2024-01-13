@@ -12,6 +12,8 @@ The following types of issues are considered security vulnerabilities:
 - Error Handling
 - Database Security
 - Input Validation and Sanitization
+- Inaccuracy of food properties in our current database
+- Lethal logical flaw from medical POV
 
 ## Response Time
 
