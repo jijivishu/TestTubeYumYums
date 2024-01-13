@@ -119,4 +119,8 @@ Upon submission, users are redirected to the home page, where they can view reco
 * Customize food recommendations based on BMI, location, diabetic info, and blood pressure info.
 * Consider previous test reports when analyzing the current test report.
 
+## Contributing
+
+Please read our [Contribution Guidelines](CONTRIBUTING.md) before contributing to the project.
+
 Thank you for using TestTubeYumYums!
