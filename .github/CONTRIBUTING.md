@@ -19,6 +19,7 @@ Thank you for considering contributing to TestTubeYumYums! We welcome all contri
 ## Code Style and Standards
 
 - Please adhere to the coding style and standards used in the project.
+- Write well descriptive comments throughout your code.
 - Write clear and concise commit messages.
 
 ## Reporting Issues
