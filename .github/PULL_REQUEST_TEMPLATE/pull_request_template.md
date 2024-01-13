@@ -1,8 +1,9 @@
 ---
 name: Pull Request
-about: Create a pull request to contribute to TestTubeYumYums
+about: Create a pull request to contribute to this project
 title: '[Feature/Bug] '
 labels: enhancement
+assignees: ''
 ---
 
 ## Description
