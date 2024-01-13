@@ -121,6 +121,6 @@ Upon submission, users are redirected to the home page, where they can view reco
 
 ## Contributing
 
-Please read our [Contribution Guidelines](CONTRIBUTING.md) before contributing to the project.
+Please read our [Contribution Guidelines](.github/CONTRIBUTING.md) before contributing to the project.
 
-Thank you for using TestTubeYumYums!
+*Thank you for using TestTubeYumYums!*
