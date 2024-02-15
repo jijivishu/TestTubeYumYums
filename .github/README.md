@@ -78,16 +78,26 @@ when the migrations are made for the very first time.
    ```bash
    pip install -r requirements.txt
    ```
-   **Note**: Ensure that PostgreSQL is running at port **5432** with the username and password set to **postgres** and the database name set to **test_tube_yum_yums_db**. Modify settings.py if needed for customisation. \
+
+5. Create a .env file in the root directory with the following content:
+
+   ```bash
+   DB_NAME=test_tube_yum_yums_db
+   DB_USER=postgres
+   DB_PASSWORD=postgres
+   DB_HOST=localhost
+   DB_PORT=5432
+   ```
+   **Note**: For the next step, ensure that PostgreSQL is running at port **5432** on **localhost** with the username and password set to **postgres** and the database name set to **test_tube_yum_yums_db**. Modify .env if needed, for database customisation. \
 ![alt text](https://github.com/jijivishu/TestTubeYumYums/blob/main/test_tube_yum_yums/static/test_tube_yum_yums/images/readme/pgadmin.png)
-5. Create migrations:
+6. Create migrations:
 
    ```bash
    python manage.py makemigrations
    python manage.py migrate
    ```
    
-6. Run the application:
+7. Run the application:
 
    ```bash
    python manage.py runserver
