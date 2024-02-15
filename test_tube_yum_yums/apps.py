@@ -38,14 +38,14 @@ def modify_to_snake(heading):
 
 
 
-class TesttubeyumyumsConfig(AppConfig):
+class test_tube_yum_yumsConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'TestTubeYumYums'
+    name = 'test_tube_yum_yums'
 
     # When the app is being initialized, load the food data from CSV and store in list of food items(dictionaries) 
     def ready(self) -> None:
         # If migrations are being made for the first time, load ranges of parameters as well by connecting signals.
-        import TestTubeYumYums.signals
+        import test_tube_yum_yums.signals
 
         try:
             # Open the CSV file for food data.

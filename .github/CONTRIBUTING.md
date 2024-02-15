@@ -1,6 +1,6 @@
-# Contributing to TestTubeYumYums
+# Contributing to test_tube_yum_yums
 
-Thank you for considering contributing to TestTubeYumYums! We welcome all contributions that help improve and enhance the project.
+Thank you for considering contributing to test_tube_yum_yums! We welcome all contributions that help improve and enhance the project.
 
 ## Ways to Contribute
 
@@ -28,7 +28,7 @@ If you find any issues or have suggestions, please open an issue on GitHub.
 
 ## Code of Conduct
 
-TestTubeYumYums follows a [Code of Conduct](CODE_OF_CONDUCT.md). Please review and adhere to it.
+test_tube_yum_yums follows a [Code of Conduct](CODE_OF_CONDUCT.md). Please review and adhere to it.
 
 *Happy Contributing :)*
 

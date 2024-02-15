@@ -8,10 +8,10 @@ import requests
 from decimal import *
 
 # Internal Imports
-from TestTubeYumYums.api_codes import nutrients
-from TestTubeYumYums.cbc_analyser import extract_nutrient_variation_by_cbc
-from TestTubeYumYums.csv_codes import nutrients as csv_code_of_nutrients
-from TestTubeYumYums.apps import food_list as food_list_from_csv
+from test_tube_yum_yums.api_codes import nutrients
+from test_tube_yum_yums.cbc_analyser import extract_nutrient_variation_by_cbc
+from test_tube_yum_yums.csv_codes import nutrients as csv_code_of_nutrients
+from test_tube_yum_yums.apps import food_list as food_list_from_csv
 
 
 # Called before rendering the landing page appropriately

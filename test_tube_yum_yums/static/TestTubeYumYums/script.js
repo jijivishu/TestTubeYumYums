@@ -545,11 +545,11 @@ function DropdownInput(props) {
     if (props.id === 7) {
 
         // This state object stores list of countries fetched from the server
-        const [countryList, getCountryList] = React.useState({})
+        const [country_list, getcountry_list] = React.useState({})
 
         // List of countries is fetched from the server. useEffect is used to avoid more than one iteration.
         React.useEffect(() => {
-            fetch(`/countryList`, {
+            fetch(`/country_list`, {
                 headers: {
                     'Accept': 'application/json',
                     'X-Requested-With': 'XMLHttpRequest', //Necessary to work with request.is_ajax()
@@ -559,7 +559,7 @@ function DropdownInput(props) {
                     return response.json()
                 })
                 .then(list => {
-                    getCountryList(list)
+                    getcountry_list(list)
                 })
         }, []
         )
@@ -572,8 +572,8 @@ function DropdownInput(props) {
                 <select class='w-full px-4 py-2 rounded-lg border-gray-300 focus-within:ring-indigo-600' {...otherProps}
                     onChange={props.updation} value={props.value}>
                     <option disabled value="">Select a country</option>
-                    {Object.keys(countryList).map((countryCode) =>
-                        <option value={countryCode}>{countryList[countryCode]}</option>
+                    {Object.keys(country_list).map((countryCode) =>
+                        <option value={countryCode}>{country_list[countryCode]}</option>
                     )}
                 </select>
             </div>
@@ -685,7 +685,7 @@ function sendToServer(formName, fields, setError) {
         setError("Successfully reached sendtoserver")
         if (fields.rangeStatus) {
             // Update new range of parameters.
-            fetch(`/paraRange`, {
+            fetch(`/para_range`, {
                 method: 'POST',
                 credentials: 'same-origin',
                 headers: {
@@ -1393,7 +1393,7 @@ function getRange(setRange) {
     let csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
 
     // Range of each parameter is fetched fromt the server. useEffect is used to avoid more than one iteration.
-    fetch(`/paraRange`, {
+    fetch(`/para_range`, {
         headers: {
             'Accept': 'application/json',
             'X-Requested-With': 'XMLHttpRequest',

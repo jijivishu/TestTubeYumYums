@@ -1,14 +1,15 @@
 # Python based imports
 from datetime import date, datetime
-from decimal import *
+from decimal import Decimal
+import json
+import re
 
 # Django based imports
 from django_countries import countries
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from django.forms import ModelForm, TextInput, FloatField
 from django.http import JsonResponse
-from django.shortcuts import render, HttpResponse, HttpResponseRedirect
+from django.shortcuts import render, HttpResponseRedirect
 from django.urls import reverse
 
 # Internal imports
@@ -16,9 +17,6 @@ from .helpers import analyse
 from .models import User, CBC, VitMin, CBCStat, VitMinStat, Range
 from .serializers import RangeSerializer, CBCSerializer, VitMinSerializer, CBCStatSerializer, VitMinStatSerializer
 
-# Imports
-import json
-import re
 
 # Login existing user or register a new user
 def authenticate_view(request):
@@ -35,7 +33,7 @@ def authenticate_view(request):
         elif json.loads(request.body)['formName'] == "Register":
             return register_view(request)
     
-    return render(request, 'TestTubeYumYums/layout.html')
+    return render(request, 'test_tube_yum_yums/layout.html')
 
 
 # Login view(only acts as a function) is called whenever an unauthenticated user requests login
@@ -169,7 +167,7 @@ def register_view(request):
 
     # Weight field validation
     # Check if received weight is valid
-    if (weight != '' or weight != None or weight != '0') and weight :
+    if (weight != '' or weight is not None or weight != '0') and weight :
         try:
             weight = round(Decimal(weight), 2)
             # Weight is valid
@@ -179,7 +177,7 @@ def register_view(request):
 
     # Height field validation
     # Check if received height is valid (None, 0, '')
-    if (height != '' or height != None or height != '0') and height:
+    if (height != '' or height is not None or height != '0') and height:
         try:
             height = round(Decimal(height), 2)
             # Height is valid
@@ -193,7 +191,7 @@ def register_view(request):
 
     # Blood Pressure field validation
     # Check if user has blood pressure issues. If yes, check if both systolic and diastolic values are valid
-    if bp == True:
+    if bp:
         try:
             systolic = round(Decimal(systolic), 2)
             # Systolic is valid
@@ -210,7 +208,7 @@ def register_view(request):
 
     # Diabetes field validation
     # Check if user has diabetes. If yes, check whether AST values are valid
-    if diabetes == True:
+    if diabetes:
         try:
             ast = round(Decimal(ast), 2)
             # AST is valid
@@ -230,7 +228,7 @@ def register_view(request):
 
 
 # Return country list to React file for rendering during new user registration
-def countryList(request):
+def country_list(request):
     '''
     Returns JSON response of all the countries with their country code as key
     '''
@@ -257,7 +255,7 @@ def index(request):
         # If no object is found, ask the user to enter test inputs in order to see personalized suggestions
         if not cbc_found and not vitmin_found:
             # Ask user to enter some values
-            return render(request, 'TestTubeYumYums/layout.html', {
+            return render(request, 'test_tube_yum_yums/layout.html', {
                 "no_entries_yet": True
             })
 
@@ -291,7 +289,7 @@ def index(request):
 
         report_analysis = analyse(cbc_found, cbc_lower, cbc_upper, vitmin_found, vitmin_lower, vitmin_upper)
 
-        return render(request, 'TestTubeYumYums/layout.html', {
+        return render(request, 'test_tube_yum_yums/layout.html', {
                 "analysis": report_analysis["analysis"],
                 "yum_yums": report_analysis['foods']
             })
@@ -355,14 +353,14 @@ def add(request):
         # User is redirected to the home page after successful updation of database
         return HttpResponseRedirect(reverse("index"))
     else:
-            return render(request, 'TestTubeYumYums/layout.html', {
+            return render(request, 'test_tube_yum_yums/layout.html', {
                 "form": "You need to be online for the website to be functional"
             })
 
 
 # Sends the range of parameters to the frontend and updates them when asked to
 @login_required
-def paraRange(request):
+def para_range(request):
     '''
     Range of parameters are fetched and updated within this view.
     '''

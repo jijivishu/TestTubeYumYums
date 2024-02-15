@@ -11,14 +11,14 @@ from django.db.models.signals import post_migrate
 from django.dispatch import receiver
 
 # Internal imports
-from TestTubeYumYums.models import CBC, VitMin
+from test_tube_yum_yums.models import CBC, VitMin
 
 # Whenever a model is migrated, trigger this function through Django's in-built signal
 @receiver(post_migrate)
 def populate_ranges(sender, **kwargs):
 
-    # Check whether the migration that triggered the function was for this app(TestTubeYumYums)'s model
-    if sender.name == 'TestTubeYumYums':
+    # Check whether the migration that triggered the function was for this app(test_tube_yum_yums)'s model
+    if sender.name == 'test_tube_yum_yums':
         
         # Check if the CBC table is migrated for the first time
         if CBC.objects.count() == 0:

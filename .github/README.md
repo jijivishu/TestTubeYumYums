@@ -1,7 +1,7 @@
 # TestTubeYumYums
 
 TestTubeYumYums is a Django-based application designed to provide custom food recommendations to users based on their blood test results. The application utilizes React and Tailwind (both CDN-based) for the front-end and PostgreSQL for the database. \
-![alt text](https://github.com/jijivishu/TestTubeYumYums/blob/main/TestTubeYumYums/static/TestTubeYumYums/images/readme/LandingPage.png?raw=true)
+![alt text](https://github.com/jijivishu/TestTubeYumYums/blob/main/test_tube_yum_yums/static/test_tube_yum_yums/images/readme/LandingPage.png?raw=true)
 
 ## Tech Stack
 
@@ -23,21 +23,21 @@ A multi-page registration form with responsiveness, validated entries, bespoke e
    Helps in using Tailwind CSS through CDN
    ### LICENSE, .gitignore and README.md
    Self-explanatory names
-   ### TestTubeYumYums > apps.py
+   ### test_tube_yum_yums > apps.py
    Modified to load csv database whenever the app is initialized. Also, when the tables are created for the first time in database, CBC and VitMin tables are populated with high and low range values provided by Dr. LalPathLab.
-   ### TestTubeYumYums > analysis_messages.py
+   ### test_tube_yum_yums > analysis_messages.py
    Contains pre-wrote analysis messages for possible combinations of CBC parameters.
-   ### TestTubeYumYums > api_codes.py
+   ### test_tube_yum_yums > api_codes.py
    No longer in use.
-   ### TestTubeYumYums > cbc_analyser.py
+   ### test_tube_yum_yums > cbc_analyser.py
    Contains helper functions to return nutrient variation based on low and high CBC parameters
-   ### TestTubeYumYums > csv_codes.py
+   ### test_tube_yum_yums > csv_codes.py
    Contains a global dictionary which links each nutrient with it's csv database table heading and howmuch of that nutrient is considered high/low differentiator in a food item.
-   ### TestTubeYumYums > helpers.py
+   ### test_tube_yum_yums > helpers.py
    Contains functions that take in reports and ranges and return dictionary of report analysis and recommended food items.
-   ### TestTubeYumYums > nutrient_imbalance.py
+   ### test_tube_yum_yums > nutrient_imbalance.py
    Contains info about what type of parameter deviation can point towards which kind of nutrient imbalance.
-   ### TestTubeYumYums > signals.py
+   ### test_tube_yum_yums > signals.py
    Utilizes Django's in-built post migration signals for populating first two rows of CBC model and VitMin model
 when the migrations are made for the very first time.
 
@@ -52,7 +52,7 @@ when the migrations are made for the very first time.
 2. Switch to the project directory and create a Python virtual environment:
 
    ```bash
-   cd TestTubeYumYums
+   cd test_tube_yum_yums
    python -m venv env
    ```
 
@@ -78,8 +78,8 @@ when the migrations are made for the very first time.
    ```bash
    pip install -r requirements.txt
    ```
-   **Note**: Ensure that PostgreSQL is running at port **5432** with the username and password set to **postgres** and the database name set to **TestTubeYumYumsDB**. Modify settings.py if needed for customisation. \
-![alt text](https://github.com/jijivishu/TestTubeYumYums/blob/main/TestTubeYumYums/static/TestTubeYumYums/images/readme/pgadmin.png)
+   **Note**: Ensure that PostgreSQL is running at port **5432** with the username and password set to **postgres** and the database name set to **test_tube_yum_yums_db**. Modify settings.py if needed for customisation. \
+![alt text](https://github.com/jijivishu/TestTubeYumYums/blob/main/test_tube_yum_yums/static/test_tube_yum_yums/images/readme/pgadmin.png)
 5. Create migrations:
 
    ```bash
@@ -97,15 +97,15 @@ when the migrations are made for the very first time.
 ## Registration
 
 The registration process consists of three steps, with the first step being mandatory. Users provide their name, email (unique identifier), date of birth, and password in the first step. Subsequent steps collect additional information such as country, weight, height, blood pressure, and diabetes data.
-![alt text](https://github.com/jijivishu/TestTubeYumYums/blob/main/TestTubeYumYums/static/TestTubeYumYums/images/readme/Register%20Menu.png?raw=true)
+![alt text](https://github.com/jijivishu/TestTubeYumYums/blob/main/test_tube_yum_yums/static/test_tube_yum_yums/images/readme/Register%20Menu.png?raw=true)
 
 ## Working
 
 Food recommendations are provided based on users' previous test reports. If a user has no test reports uploaded, they are prompted to do so. Users can upload test reports through the '/add' route, customizing the ranges associated with a test report at the time of upload.
-![alt text](https://github.com/jijivishu/TestTubeYumYums/blob/main/TestTubeYumYums/static/TestTubeYumYums/images/readme/Form.png?raw=true)
+![alt text](https://github.com/jijivishu/TestTubeYumYums/blob/main/test_tube_yum_yums/static/test_tube_yum_yums/images/readme/Form.png?raw=true)
 
 Upon submission, users are redirected to the home page, where they can view recommended food items based on their test results and analysis report.
-![alt text](https://github.com/jijivishu/TestTubeYumYums/blob/main/TestTubeYumYums/static/TestTubeYumYums/images/readme/Demo.png?raw=true)
+![alt text](https://github.com/jijivishu/TestTubeYumYums/blob/main/test_tube_yum_yums/static/test_tube_yum_yums/images/readme/Demo.png?raw=true)
 
 ## Future Expectations
 

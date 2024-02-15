@@ -1,5 +1,5 @@
 """
-URL configuration for Capstone project.
+URL configuration for capstone project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.0/topics/http/urls/
@@ -19,5 +19,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include("TestTubeYumYums.urls"))
+    path('', include("test_tube_yum_yums.urls"))
 ]

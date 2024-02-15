@@ -1,6 +1,6 @@
 ---
 name: Pull Request
-about: Create a pull request to contribute to TestTubeYumYums
+about: Create a pull request to contribute to test_tube_yum_yums
 title: '[Feature/Bug] '
 labels: bug/enhancement
 ---

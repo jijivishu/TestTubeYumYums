@@ -4,7 +4,7 @@ This file contains helper function to return nutrient variation based on low and
 
 
 # Internal import for value based analysis
-from TestTubeYumYums import analysis_messages, nutrient_imbalance
+from test_tube_yum_yums import analysis_messages, nutrient_imbalance
 
 # Extract which nutrient varies based on out of range parameters of CBC
 def extract_nutrient_variation_by_cbc(low, high):
