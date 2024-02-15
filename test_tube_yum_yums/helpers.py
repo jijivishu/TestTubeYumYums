@@ -5,7 +5,7 @@ This file contains helper functions for analysing test result(s) based on it's r
 # Python-based imports
 import sys
 import requests
-from decimal import *
+from decimal import Decimal
 
 # Internal Imports
 from test_tube_yum_yums.api_codes import nutrients
@@ -18,10 +18,10 @@ from test_tube_yum_yums.apps import food_list as food_list_from_csv
 def analyse(cbc, cbc_low, cbc_high, vitMin, vitMin_low, vitMin_high):
     '''
     Takes as input the CBC and/or Vitamin value(object) to be analysed, 
-    alongwith their lower and upper ranges(objects). \n\n
+    alongwith their lower and upper ranges(objects). 
 
-    Returns a dictionary containing the following fields: \n
-    'analysis': Summarises the analysis based on user's report. \n
+    Returns a dictionary containing the following fields: 
+    'analysis': Summarises the analysis based on user's report. 
     'foods' (optional) : List of food items(dictionaries) based on the analysis.
     '''
 
@@ -57,11 +57,11 @@ def analyse(cbc, cbc_low, cbc_high, vitMin, vitMin_low, vitMin_high):
         # Depending on the value of nutrients, assign them to their respective array.
         # In cases when the nutrient is already present classified by it's exact value, discard it's CBC based prediction.
         for item in low:
-            if not item in high_nutrients or item in low_nutrients:
+            if not (item in high_nutrients or item in low_nutrients):
                 low_nutrients.append(item)
 
         for item in high:
-            if not item in high_nutrients or item in low_nutrients:
+            if not (item in high_nutrients or item in low_nutrients):
                 high_nutrients.append(item)
     
     # Get food recommendations based on low and high parameters.
@@ -85,11 +85,11 @@ def analyse(cbc, cbc_low, cbc_high, vitMin, vitMin_low, vitMin_high):
 # Called for filtering parameters based on range
 def out_of_range_filter(report, min, max):
     '''
-    Takes report object, upper range object and lower range object as input. \n\n
+    Takes report object, upper range object and lower range object as input.
 
 
-    Returns map with following keys: \n
-    'low': Contains list of parameter names in report falling short of minimum value in range. \n
+    Returns map with following keys:
+    'low': Contains list of parameter names in report falling short of minimum value in range.
     'high': Contains list of parameter names in report exceeding maximum value in range.
     '''
 
@@ -207,7 +207,7 @@ def recommend_food_items(low, high):
 # NOTE: THIS FUNCTION IS NO LONGER IN USE
 def fetch_food_from_api(low, high):
     '''
-    THIS FUNCTION IS NO LONGER IN USE AFTER DEPRECATION OF NUTRITIONIX API'S V1 ENDPOINTS \n\n
+    THIS FUNCTION IS NO LONGER IN USE AFTER DEPRECATION OF NUTRITIONIX API'S V1 ENDPOINTS
 
     Takes as input, the list of low and high nutrients and returns list of food items based on results by Nutritionix API.
     '''

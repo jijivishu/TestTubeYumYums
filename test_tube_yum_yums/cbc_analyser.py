@@ -9,9 +9,9 @@ from test_tube_yum_yums import analysis_messages, nutrient_imbalance
 # Extract which nutrient varies based on out of range parameters of CBC
 def extract_nutrient_variation_by_cbc(low, high):
     '''
-    Takes as input list of low and high CBC parameters(names). \n\n
+    Takes as input list of low and high CBC parameters(names).
 
-    Returns dictionary containing the following three keys: \n
+    Returns dictionary containing the following three keys: 
     'low_nutrients': Contains list of deficient nutrients.
     'high_nutrients': Contains list of exceeding nutrients.
     'analysis_message': Contains short message analysing the report.
@@ -21,9 +21,11 @@ def extract_nutrient_variation_by_cbc(low, high):
     def organise():
         '''
         Sometimes, variation of one CBC parameter reflects excess of a nutrient 
-        while the same of another parameter reflects deficiency of that nutrient, simultaneously. \n
+        while the same of another parameter reflects deficiency of that nutrient, simultaneously.
+        
         In such scenarios, deficiency is generally overshadowed by excess unless we have the exact value 
-        of that nutrient. \n
+        of that nutrient. 
+
         This function serves the same purpose and removes a nutrient from deficient category in case of clash.
         It also converts analysis_message from list of string(s) to a clean and presentable string.
         '''

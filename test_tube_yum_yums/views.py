@@ -39,8 +39,8 @@ def authenticate_view(request):
 # Login view(only acts as a function) is called whenever an unauthenticated user requests login
 def login_view(request):
     '''
-    Validates login credentials. \n
-    If credentials are valid, user is logged in and the landing page(views.index) is rendered. \n
+    Validates login credentials.
+    If credentials are valid, user is logged in and the landing page(views.index) is rendered.
     Otherwise, Json Response is returned containing error message.
     '''
     request_body = json.loads(request.body)
@@ -76,8 +76,8 @@ def login_view(request):
 # Register view(only acts as a function) is called whenever an unauthenticated user requests registration
 def register_view(request):
     '''
-    Validates registration credentials. \n
-    If credentials are valid, user is logged in and the landing page(views.index) is rendered.\n
+    Validates registration credentials.
+    If credentials are valid, user is logged in and the landing page(views.index) is rendered.
     Otherwise, Json Response is returned containing error message.
     '''
     request_body = json.loads(request.body)
@@ -238,7 +238,7 @@ def country_list(request):
 # Landing page view
 def index(request): 
     '''
-    Renders landing page populated with food suggestions for the logged user. \n
+    Renders landing page populated with food suggestions for the logged user.
     Redirects for authentication in case of unauthenticated user.
     '''
 
@@ -320,10 +320,10 @@ def analysis(request):
 @login_required
 def add(request):
     '''
-    Validates test values received through API \n
+    Validates test values received through API
 
-    If values are valid, data is updated in database and user is redirected to the landing page \n
-    Otherwise, a respose is returned stating presence of invalid values. \n
+    If values are valid, data is updated in database and user is redirected to the landing page
+    Otherwise, a respose is returned stating presence of invalid values.
 
     If the user is not online, a message is rendered asking them to be online for functional CDN React based front-end
     '''
@@ -433,15 +433,15 @@ def check_match(default, received):
 # Called to update range of parameters for a user and also to create new test stat objects
 def assign(user, model, serializer, received, type):
     '''
-    For any given user, the functionality varies depending on the value of type argument. \n\n\n
+    For any given user, the functionality varies depending on the value of type argument.
     'low': Range object's model_lower parameter is updated depending on the value of model argument 
-    (for updating lower range of parameters [by creating a new CBC or VitMin object]). \n\n
+    (for updating lower range of parameters [by creating a new CBC or VitMin object]).
     'high': Range object's model_upper parameter is updated depending on the value of model argument 
-    (for updating upper range of parameters [by creating a new CBC or VitMin object]). \n\n
+    (for updating upper range of parameters [by creating a new CBC or VitMin object]).
     other: Depending on the value of model argument, new modelStat object is created 
-    (for creating new object [CBC or VitMin] depending on test values entered by a user).\n\n
+    (for creating new object [CBC or VitMin] depending on test values entered by a user).
 
-    Note: Range values or test values, both are basically an instance of CBC or VitMin model only. \n
+    Note: Range values or test values, both are basically an instance of CBC or VitMin model only.
     Refer models' schema for more info.
     '''
 
@@ -469,9 +469,9 @@ def assign(user, model, serializer, received, type):
 def update_model(model, serializer, received):
     '''
     For any given model, this function creates a new object with every field(except id) based 
-    on value of property, with same fieldname; retreived from received argument. \n\n
+    on value of property, with same fieldname; retreived from received argument.
 
-    Note: Only puropse of a serializer here is to get names of model fields. /n
+    Note: Only puropse of a serializer here is to get names of model fields.
     If you want certain fields to be untouched in created objects, provide a suitable ModelSerializer.
     '''
 

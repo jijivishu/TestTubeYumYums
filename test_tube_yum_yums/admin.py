@@ -2,7 +2,6 @@
 
 # Django-based imports
 from django.contrib import admin
-from django.contrib.auth.admin import UserAdmin
 
 # Internal imports
 from .models import User, CBC, VitMin, CBCStat, VitMinStat, Range

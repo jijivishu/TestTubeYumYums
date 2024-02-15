@@ -147,19 +147,21 @@ for field in user_fields:
     
 class CBC(models.Model):
     '''
-    Responsible for storing CBC test values and CBC ranges corresponding to every user. \n\n
+    Responsible for storing CBC test values and CBC ranges corresponding to every user.
 
-    get_low(): Designated function to return default lower range value for every CBC parameter. \n
-    get_high(): Designated function to return default upper range value for every CBC parameter. \n\n\n
+    get_low(): Designated function to return default lower range value for every CBC parameter.
+    get_high(): Designated function to return default upper range value for every CBC parameter.
 
     NOTE: DO NOT alter values for pk=1 and pk=2 in this model as they hold default lower and upper ranges for every user.
     '''
     @classmethod
     def get_low(cls):
+        """Designated function to return default lower range value for every CBC parameter."""
         return cls.objects.get(pk=1).pk
     
     @classmethod
     def get_high(cls):
+        """Designated function to return default upper range value for every CBC parameter."""
         return cls.objects.get(pk=2).pk
 
 # Fields holding labtest data are similar in nature for every parameter and can be efficiently added through loop
@@ -170,19 +172,21 @@ for field in cbc_fields:
 
 class VitMin(models.Model):
     '''
-    Responsible for storing Vitamin and Mineral test values and ranges corresponding to every user. \n\n
+    Responsible for storing Vitamin and Mineral test values and ranges corresponding to every user.
 
-    get_low(): Designated function to return default lower range value for every Vitamin and Mineral parameter. \n
-    get_high(): Designated function to return default upper range value for every Vitamin and Mineral parameter. \n
+    get_low(): Designated function to return default lower range value for every Vitamin and Mineral parameter.
+    get_high(): Designated function to return default upper range value for every Vitamin and Mineral parameter.
     
     NOTE: DO NOT alter values for pk=1 and pk=2 in this model as they hold default lower and upper ranges for every user.
     '''
     @classmethod
     def get_low(cls):
+        """Designated function to return default lower range value for every Vitamin and Mineral parameter."""
         return cls.objects.get(pk=1).pk
     
     @classmethod
     def get_high(cls):
+        """Designated function to return default upper range value for every Vitamin and Mineral parameter."""
         return cls.objects.get(pk=2).pk
 
 # Fields holding labtest data are similar in nature for every parameter and can be efficiently added through loop

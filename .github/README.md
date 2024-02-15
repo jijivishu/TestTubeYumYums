@@ -79,7 +79,7 @@ when the migrations are made for the very first time.
    pip install -r requirements.txt
    ```
 
-5. Create a .env file in the root directory with the following content:
+5. Create a **.env** file in the root directory with the following content:
 
    ```bash
    DB_NAME=test_tube_yum_yums_db
@@ -88,7 +88,7 @@ when the migrations are made for the very first time.
    DB_HOST=localhost
    DB_PORT=5432
    ```
-   **Note**: For the next step, ensure that PostgreSQL is running at port **5432** on **localhost** with the username and password set to **postgres** and the database name set to **test_tube_yum_yums_db**. Modify .env if needed, for database customisation. \
+   **Note**: For the next step, ensure that PostgreSQL is running at port **5432** on **localhost** with the username and password set to **postgres** and the database name set to **test_tube_yum_yums_db**. Modify the **.env** file created in previous step, if needed, for database customisation. \
 ![alt text](https://github.com/jijivishu/TestTubeYumYums/blob/main/test_tube_yum_yums/static/test_tube_yum_yums/images/readme/pgadmin.png)
 6. Create migrations:
 

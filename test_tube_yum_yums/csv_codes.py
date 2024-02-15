@@ -1,5 +1,5 @@
 '''
-This file contains a global dictionary which links each nutrient with it's: \n\n
+This file contains a global dictionary which links each nutrient with it's:
 
 'csv_key': heading in csv database, 
 'ltu' and 'gtu': lower_than_usual(ltu) and greater_than_usual(gtu) value of that nutrient per 100g of a food, 
