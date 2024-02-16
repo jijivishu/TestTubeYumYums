@@ -54,7 +54,7 @@ when the migrations are made for the very first time.
 2. Switch to the project directory and create a Python virtual environment:
 
    ```bash
-   cd test_tube_yum_yums
+   cd TestTubeYumYums
    python -m venv env
    ```
 
