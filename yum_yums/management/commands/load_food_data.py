@@ -35,6 +35,11 @@ class Command(BaseCommand):
                     try:
                         # Modify the column names to replace non-ASCII characters
                         row = {re.sub(r'[^\x00-\x7F]+', '', key): value for key, value in row.items()}
+
+                        # Remove commas from numeric fields and convert them to numbers
+                        for key, value in row.items():
+                            if key not in ['S. No.', 'Name', 'Short Description', 'Image URL', 'Type']:
+                                row[key] = float(value.replace(',', '')) if value else None
                         
                         # Create a FoodItem object from the CSV data and save it to the database
                         FoodItem.objects.create(

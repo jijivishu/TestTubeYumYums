@@ -1,8 +1,12 @@
 from django.apps import AppConfig
 
-class TestTubeYumYumsConfig(AppConfig):
+class test_tube_yum_yumsConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'test_tube_yum_yums'
+
+    def ready(self) -> None:
+        import test_tube_yum_yums.signals
+        return super().ready()
 
 '''
 NOTE: CONTENT LATER IN THIS FILE IS NO LONGER IN USE

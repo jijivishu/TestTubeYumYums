@@ -6,7 +6,7 @@ class FoodItem(models.Model):
     S_NO = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=100)
     short_description = models.TextField()
-    image_url = models.URLField()
+    image_url = models.CharField(max_length=250)
     type = models.CharField(max_length=50)
     calories = models.FloatField()
     total_fat = models.FloatField()
