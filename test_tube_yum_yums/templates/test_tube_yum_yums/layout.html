@@ -31,7 +31,7 @@
 </head>
 
 <body
-    class="bg-fixed backdrop-blur-sm bg-[url('https://images.unsplash.com/photo-1682114984734-663a310396dc?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')]">
+    class="bg-fixed backdrop-blur-sm bg-[url('{% static 'test_tube_yum_yums/images/background.webp' %}')]">
 
     <!-- Handy for next version when individual items would need to be displayed as overlay: <div id="overlay"></div> -->
 
@@ -83,7 +83,7 @@
                 <div class="rounded-md p-8 mt-20 md:mx-20 lg:mx-40">
                     <p class="mb-8 text-3xl font-semibold text-gray-900">Report Analysis</p>
                     <div
-                        class="rounded-lg py-6 px-8 bg-fixed backdrop-blur-2xl bg-[url('https://images.unsplash.com/photo-1515339760107-1952b7a08454?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')]">
+                        class="rounded-lg py-6 px-8 bg-fixed backdrop-blur-2xl bg-[url('{% static 'test_tube_yum_yums/images/report_background.jpg' %}')]">
                         <p class="font-serif">
                             {{ analysis }}
                         </p>
@@ -154,7 +154,7 @@
                                                     <!--Calories in recommended portion-->
                                                     <div>
                                                         <span class="text-2xl font-thin text-gray-900 dark:text-white">
-                                                            {% with result=yumYum.calories_in_kcal|div:100|mul:yumYum.recommended_portion_in_g %}
+                                                            {% with result=yumYum.calories|div:100|mul:yumYum.recommended_portion %}
                                                                 {{ result|floatformat }}
                                                             {% endwith %}
                                                         </span>
@@ -163,7 +163,7 @@
 
                                                     <!--Calories in recommended portion-->
                                                     <div>
-                                                        <span class="text-sm font-thin text-gray-900 dark:text-white">{{yumYum.recommended_portion_in_g }}g</span>
+                                                        <span class="text-sm font-thin text-gray-900 dark:text-white">{{yumYum.recommended_portion }}g</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -179,7 +179,7 @@
             {% elif no_entries_yet %}
                 <div class="rounded-md p-8 mt-20 md:mx-20 lg:mx-40">
                     <div
-                        class="rounded-lg py-6 px-8 bg-fixed backdrop-blur-2xl bg-[url('https://images.unsplash.com/photo-1515339760107-1952b7a08454?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')]">
+                        class="rounded-lg py-6 px-8 bg-fixed backdrop-blur-2xl bg-[url('{% static 'test_tube_yum_yums/images/report_background.jpg' %}')]">
                         <p class="font-serif">No reports yet. Upload test results to enjoy food recommendations.</p>
                     </div>
                 </div>

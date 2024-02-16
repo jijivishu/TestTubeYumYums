@@ -10,8 +10,8 @@ from decimal import Decimal
 # Internal Imports
 from test_tube_yum_yums.api_codes import nutrients
 from test_tube_yum_yums.cbc_analyser import extract_nutrient_variation_by_cbc
-from test_tube_yum_yums.csv_codes import nutrients as csv_code_of_nutrients
-from test_tube_yum_yums.apps import food_list as food_list_from_csv
+from test_tube_yum_yums.food_codes import nutrients as code_of_nutrients
+from yum_yums.models import FoodItem
 
 
 # Called before rendering the landing page appropriately
@@ -128,10 +128,12 @@ def recommend_food_items(low, high):
     and returns a list of food items which contain excess and minimal amount of those nutrients respectively.
     '''
 
+    # Load list of food items from database
+    food_list = FoodItem.all_as_list_of_dict()
 
     # Make sure the list of food items is already imported.
-    if not food_list_from_csv:
-        print("ERROR: Please make sure you've import the food data. Run 'python manage.py food_data' in the terminal to import.")
+    if not food_list:
+        print("ERROR: Please make sure you've imported the food data. Run 'python manage.py load_food_data' in the terminal to import.")
         sys.exit(1)
 
     # Empty list to contain foods based on low and high nutrients
@@ -145,9 +147,9 @@ def recommend_food_items(low, high):
     for parameter in low:
         # For each low parameter, get the heading of column in the csv file (food data) corresponding to it.
         # Also, get the greater_than_usual(gtu) parameter which reflects what quantity of that parameter is considered high in 100grams of any food.
-        parameter_csv_data = csv_code_of_nutrients[parameter]
-        csv_heading = parameter_csv_data['csv_key']
-        gtu = parameter_csv_data['gtu']
+        parameter_code_data = code_of_nutrients[parameter]
+        csv_heading = parameter_code_data['field_name']
+        gtu = parameter_code_data['gtu']
 
         # Update corresponding dictionary for ease of filtering food items.
         minimum_values[csv_heading] = gtu
@@ -155,30 +157,30 @@ def recommend_food_items(low, high):
     for parameter in high:
         # For each high parameter, get the heading of column in the csv file (food_data) corresponding to it.
         # Also, get the lower_than_usual(ltu) parameter which reflects what quantity of that parameter is considered low in 100grams of any food.
-        parameter_csv_data = csv_code_of_nutrients[parameter]
-        csv_heading = parameter_csv_data['csv_key']
-        ltu = parameter_csv_data['ltu']
+        parameter_code_data = code_of_nutrients[parameter]
+        csv_heading = parameter_code_data['field_name']
+        ltu = parameter_code_data['ltu']
 
         # Update corresponding dictionary for ease of filtering food items.
         maximum_values[csv_heading] = ltu
         
     # Filter csv data based on those csv heading and ltu/htu values
-    for food in food_list_from_csv:
+    for food in food_list:
 
         # Optimum Nutrient count tells how many nutrients satisfy user's nutrient requirements compared to how many who don't.
         # It is used to display to the end user, how reliable a food item recommendation is.
         optimum_nutrient_count = 0
 
         # For every nutrient that was lower in test report, check every food to have adequate amount of that nutrient.
-        for parameter_csv_key, minimum_value in minimum_values.items():
-            if food[parameter_csv_key] > minimum_value:
+        for parameter_field_name, minimum_value in minimum_values.items():
+            if food[parameter_field_name] > minimum_value:
                 optimum_nutrient_count += 1
             else:
                 optimum_nutrient_count -= 1
 
         # For every nutrient that was higher in test report, check every food to have minimal amount of that nutrient.
-        for parameter_csv_key, maximum_value in maximum_values.items():
-            if food[parameter_csv_key] < maximum_value:
+        for parameter_field_name, maximum_value in maximum_values.items():
+            if food[parameter_field_name] < maximum_value:
                 optimum_nutrient_count += 1
             else:
                 optimum_nutrient_count -= 1

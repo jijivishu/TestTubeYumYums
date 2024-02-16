@@ -39,6 +39,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'test_tube_yum_yums',
+    'yum_yums',
     
     'rest_framework',
     'mathfilters',
@@ -141,5 +142,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Override the default user model
 AUTH_USER_MODEL = 'test_tube_yum_yums.User'
 
-# Path to Food Database(csv)
-FOOD_DATA_PATH = 'food_data.csv'
+# # Path to Food Database(csv)
+# FOOD_DATA_PATH = 'food_data.csv'

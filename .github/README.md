@@ -31,8 +31,8 @@ A multi-page registration form with responsiveness, validated entries, bespoke e
    No longer in use.
    ### test_tube_yum_yums > cbc_analyser.py
    Contains helper functions to return nutrient variation based on low and high CBC parameters
-   ### test_tube_yum_yums > csv_codes.py
-   Contains a global dictionary which links each nutrient with it's csv database table heading and howmuch of that nutrient is considered high/low differentiator in a food item.
+   ### test_tube_yum_yums > food_codes.py
+   Contains a global dictionary which links each nutrient with it's field name in database and how much of that nutrient is considered high/low differentiator in a food item.
    ### test_tube_yum_yums > helpers.py
    Contains functions that take in reports and ranges and return dictionary of report analysis and recommended food items.
    ### test_tube_yum_yums > nutrient_imbalance.py
@@ -40,6 +40,8 @@ A multi-page registration form with responsiveness, validated entries, bespoke e
    ### test_tube_yum_yums > signals.py
    Utilizes Django's in-built post migration signals for populating first two rows of CBC model and VitMin model
 when the migrations are made for the very first time.
+   ### yum_yums > models.py
+   Contain schema for food items stored in database
 
 ## Installation
 
@@ -89,15 +91,21 @@ when the migrations are made for the very first time.
    DB_PORT=5432
    ```
    **Note**: For the next step, ensure that PostgreSQL is running at port **5432** on **localhost** with the username and password set to **postgres** and the database name set to **test_tube_yum_yums_db**. Modify the **.env** file created in previous step, if needed, for database customisation. \
-![alt text](https://github.com/jijivishu/TestTubeYumYums/blob/main/test_tube_yum_yums/static/test_tube_yum_yums/images/readme/pgadmin.png)
+![alt text](https://github.com/jijivishu/TestTubeYumYums/blob/main/test_tube_yum_yums/static/test_tube_yum_yums/images/readme/pgadmin.png) \
 6. Create migrations:
 
    ```bash
    python manage.py makemigrations
    python manage.py migrate
    ```
+
+7. Load food data from csv file to database:
+
+   ```bash
+   python manage.py load_food_data food_data.csv
+   ```
    
-7. Run the application:
+8. Run the application:
 
    ```bash
    python manage.py runserver
