@@ -41,7 +41,7 @@ A multi-page registration form with responsiveness, validated entries, bespoke e
    Utilizes Django's in-built post migration signals for populating first two rows of CBC model and VitMin model
 when the migrations are made for the very first time.
    ### yum_yums > models.py
-   Contain schema for food items stored in database
+   Contains schema for food items stored in database
 
 ## Installation
 
@@ -91,7 +91,7 @@ when the migrations are made for the very first time.
    DB_PORT=5432
    ```
    **Note**: For the next step, ensure that PostgreSQL is running at port **5432** on **localhost** with the username and password set to **postgres** and the database name set to **test_tube_yum_yums_db**. Modify the **.env** file created in previous step, if needed, for database customisation. \
-![alt text](https://github.com/jijivishu/TestTubeYumYums/blob/main/test_tube_yum_yums/static/test_tube_yum_yums/images/readme/pgadmin.png) \
+![alt text](https://github.com/jijivishu/TestTubeYumYums/blob/main/test_tube_yum_yums/static/test_tube_yum_yums/images/readme/pgadmin.png) 
 6. Create migrations:
 
    ```bash
@@ -114,15 +114,15 @@ when the migrations are made for the very first time.
 
 ## Registration
 
-The registration process consists of three steps, with the first step being mandatory. Users provide their name, email (unique identifier), date of birth, and password in the first step. Subsequent steps collect additional information such as country, weight, height, blood pressure, and diabetes data.
+The registration process consists of three steps, with the first step being mandatory. Users provide their name, email (unique identifier), date of birth, and password in the first step. Subsequent steps collect additional information such as country, weight, height, blood pressure, and diabetes data. \
 ![alt text](https://github.com/jijivishu/TestTubeYumYums/blob/main/test_tube_yum_yums/static/test_tube_yum_yums/images/readme/Register%20Menu.png?raw=true)
 
 ## Working
 
-Food recommendations are provided based on users' previous test reports. If a user has no test reports uploaded, they are prompted to do so. Users can upload test reports through the '/add' route, customizing the ranges associated with a test report at the time of upload.
+Food recommendations are provided based on users' previous test reports. If a user has no test reports uploaded, they are prompted to do so. Users can upload test reports through the '/add' route, customizing the ranges associated with a test report at the time of upload. \
 ![alt text](https://github.com/jijivishu/TestTubeYumYums/blob/main/test_tube_yum_yums/static/test_tube_yum_yums/images/readme/Form.png?raw=true)
 
-Upon submission, users are redirected to the home page, where they can view recommended food items based on their test results and analysis report.
+Upon submission, users are redirected to the home page, where they can view recommended food items based on their test results and analysis report. \
 ![alt text](https://github.com/jijivishu/TestTubeYumYums/blob/main/test_tube_yum_yums/static/test_tube_yum_yums/images/readme/Demo.png?raw=true)
 
 ## Future Expectations
