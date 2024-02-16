@@ -1,5 +1,11 @@
+from django.apps import AppConfig
+
+class TestTubeYumYumsConfig(AppConfig):
+    default_auto_field = 'django.db.models.BigAutoField'
+    name = 'test_tube_yum_yums'
+
 '''
-NOTE: THIS FILE IS NO LONGER IN USE
+NOTE: CONTENT LATER IN THIS FILE IS NO LONGER IN USE
 This file has been extended to load the food data from CSV and store in list of food items(dictionaries)
 when the app is being initialized. This saves us from loading csv everytime, for each operation.
 

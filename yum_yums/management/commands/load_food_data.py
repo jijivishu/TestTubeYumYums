@@ -32,12 +32,10 @@ class Command(BaseCommand):
                 
                 # Iterate over each row in the CSV file
                 for row in csv_reader:
-                    print(row)
                     try:
                         # Modify the column names to replace non-ASCII characters
                         row = {re.sub(r'[^\x00-\x7F]+', '', key): value for key, value in row.items()}
                         
-                        print(row)
                         # Create a FoodItem object from the CSV data and save it to the database
                         FoodItem.objects.create(
                             S_NO=row['S. No.'],
