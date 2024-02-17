@@ -682,7 +682,6 @@ function sendToServer(formName, fields, setError) {
     }
 
     else if (formName === "Test") {
-        setError("Successfully reached sendtoserver")
         if (fields.rangeStatus) {
             // Update new range of parameters.
             fetch(`/para_range`, {
